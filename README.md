@@ -14,7 +14,7 @@ Typescript definitions are included.
 
 
 ```ts
-trianglesIntersect(t1: Triangle, t2: Triangle, target?: Vector3[]): Intersection
+trianglesIntersect(t1: Triangle, t2: Triangle, target?: Array<Vector3>): Intersection
 ```
 
 Computes wether triangle `t1` and `t2` are intersecting and returns `Intersection.Cross` if triangles are *cross-intersecting*, `Intersection.Coplanar` if triangles are *coplanar-intersecting*, otherwise returns `null`.
