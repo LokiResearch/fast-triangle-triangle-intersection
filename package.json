@@ -1,6 +1,7 @@
 {
-  "name": "triangles-intersect",
-  "version": "0.0.0",
+  "name": "triangle-triangle-intersection-js",
+  "descripion": "Fast triangle-triangle intersection computation with high precision and cross/coplanar triangles handling.",
+  "version": "1.0.0",
   "branch": "master",
   "type": "module",
   "main": "build/index.js",

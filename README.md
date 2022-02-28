@@ -2,7 +2,7 @@
 
 [![build](https://github.com/LokiResearch/triangle-triangle-intersection-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/LokiResearch/triangle-triangle-intersection-js/actions/workflows/node.js.yml)
 
-A simple package providing an utility function allowing to precisely determine if two 3D triangles intersect and obtain the intersection.
+Fast triangle-triangle intersection computation with high precision and cross/coplanar triangles handling.
 
 Typescript definitions are included.
 
