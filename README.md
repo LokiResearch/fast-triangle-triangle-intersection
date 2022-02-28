@@ -1,16 +1,31 @@
-# triangles-intersect
+# triangle-triangle-intersection-js
 
-[![build](https://github.com/minitoine/triangles-intersect/actions/workflows/node.js.yml/badge.svg)](https://github.com/minitoine/triangles-intersect/actions/workflows/node.js.yml)
+[![build](https://github.com/LokiResearch/triangle-triangle-intersection-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/LokiResearch/triangle-triangle-intersection-js/actions/workflows/node.js.yml)
 
 A simple package providing an utility function allowing to precisely determine if two 3D triangles intersect and obtain the intersection.
 
+Typescript definitions are included.
 
+### Install
+
+`npm i triangle-triangle-intersection-js`
+
+### Documentation
+
+```ts
+trianglesIntersect(t1: Triangle, t2: Triangle, target?: Vector3[]): Intersection
+```
+
+Computes wether triangle `t1` and `t2` are intersecting and returns `Intersection.Cross` if triangles are *cross-intersecting*, `Intersection.Coplanar` if triangles are *coplanar-intersecting*, otherwise returns `null`.
+If `target` array is given, **it is emptied** and intersection points are then computed and put in the array.
 
 ### Use
 
+Check if triangles are simply crossing in 3D space.
+
 ```ts
-import {Triangle, Line3} from 'three';
-import {trianglesIntersect} from 'triangles-intersect';
+import {Triangle} from 'three';
+import {trianglesIntersect, Intersection} from 'triangle-triangle-intersection-js';
 
 const t1 = new Triangle();
 t1.a.set(-1, 0, 0);
@@ -22,22 +37,24 @@ t2.a.set(1, 0, 0);
 t2.b.set(-2, -2, 0);
 t2.c.set(-2, 2, 0);
 
-const target = new Line3();
-if (trianglesIntersect(t1, t2, target)) {
-	console.log(target) // Displays {start:(1, 0, 0), end:(-1, 0, 0)}
+const intersection = trianglesIntersect(t1, t2);
+if (intersection === Intersection.Cross) {
+  console.log("Triangles are cross-intersecting.");
+} else if (intersection === Intersection.Coplanar) {
+  console.log("Triangles are coplanar-intersecting.");
+} else {
+  console.log("Triangles are not intersecting.");
 }
 ```
 
-### Documentation
+Obtening the intersection points.
 
 ```ts
-trianglesIntersect(t1: Triangle, t2: Triangle, target?: Line3): boolean
+const points = new Array<Vector3>();
+if (trianglesIntersect(t1, t2, points)) {
+  console.log("Intersection points: ", points) // [Vector3(1, 0, 0), Vector3(-1, 0, 0)]
+}
 ```
-
-Return true if `t1` and `t2` intersect, false otherwise.
-`target` will contain the intersection shape if provided, otherwise, only the intersection status is computed.
-
-Note: coplanar triangles are not currently handled and the function returns false if the case is detected.
 
 ### Info
 

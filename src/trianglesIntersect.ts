@@ -30,7 +30,7 @@ export enum Intersection {
 
 /**
  * Return wether triangle t1 and t2 are cross-intersecting or coplanar-intersecting, otherwise returns null.
- * If target array is given, it is *emptied*, intersection points are then computed and put in array.
+ * If target array is given, it is *emptied*, intersection points are then computed and put in the array.
  *
  * @param      {Triangle}                t1      The t 1
  * @param      {Triangle}                t2      The t 2
