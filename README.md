@@ -12,6 +12,7 @@ Typescript definitions are included.
 
 ### Documentation
 
+
 ```ts
 trianglesIntersect(t1: Triangle, t2: Triangle, target?: Vector3[]): Intersection
 ```
@@ -21,7 +22,7 @@ If `target` array is given, **it is emptied** and intersection points are then c
 
 ### Use
 
-Check if triangles are simply crossing in 3D space.
+Check if triangles are simply intersecting.
 
 ```ts
 import {Triangle} from 'three';
