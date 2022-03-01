@@ -1,6 +1,5 @@
 # faster-triangle-triangle-intersection
 
-
 Faster and robust triangle-triangle intersection computation with high precision for cross and coplanar triangles based on the algorithm by Devillers & Guigue [<sup>[1]</sup>](https://hal.inria.fr/inria-00072100/document).
 
 [![build](https://github.com/LokiResearch/triangle-triangle-intersection-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/LokiResearch/triangle-triangle-intersection-js/actions/workflows/node.js.yml)
@@ -8,13 +7,11 @@ Faster and robust triangle-triangle intersection computation with high precision
 - Uses Three.js
 - Typescript definitions included.
 
-
 ## Install
 
 `npm i faster-triangle-triangle-intersection`
 
 ## Documentation
-
 
 ```ts
 trianglesIntersect(t1: Triangle, t2: Triangle, target?: Array<Vector3>): Intersection
@@ -56,7 +53,7 @@ Obtening the intersection points.
 ```ts
 const points = new Array<Vector3>();
 if (trianglesIntersect(t1, t2, points)) {
-  console.log("Intersection points: ", points) // [Vector3(1, 0, 0), Vector3(-1, 0, 0)]
+  console.log("Intersection points: ", points); // [Vector3(1, 0, 0), Vector3(-1, 0, 0)]
 }
 ```
 
