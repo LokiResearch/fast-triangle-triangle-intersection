@@ -1,7 +1,12 @@
 {
-  "name": "triangle-triangle-intersection-js",
-  "descripion": "Fast triangle-triangle intersection computation with high precision and cross/coplanar triangles handling.",
+  "name": "faster-triangle-triangle-intersection",
+  "descripion": "Faster and robust triangle-triangle intersection computation with high precision for cross and coplanar triangles based on the algorithm by Devillers & Guigue [<sup>[1]</sup>](https://hal.inria.fr/inria-00072100/document).",
   "version": "1.0.0",
+  "author": {
+    "name" : "Axel Antoine",
+    "email" : "ax.antoine@gmail.com",
+    "url" : "https://axantoine.com"
+  },
   "branch": "master",
   "type": "module",
   "main": "build/index.js",
