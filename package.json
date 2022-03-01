@@ -5,7 +5,7 @@
     "triangle", "intersection", "crossing", "coplanar", "Devillers", "Muller",
     "3D", "2D", "three.js", "precision", "typescript"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name" : "Axel Antoine",
     "email" : "ax.antoine@gmail.com",
