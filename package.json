@@ -27,6 +27,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "prepublishOnly": "npm run build"
   }
 }
