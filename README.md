@@ -2,9 +2,10 @@
 
 [![build](https://github.com/LokiResearch/fast-triangle-triangle-intersection/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/LokiResearch/fast-triangle-triangle-intersection/actions/workflows/node.js.yml)
 
-Fast and robust triangle-triangle intersection computation with high precision for cross and coplanar triangles based on the algorithm by Devillers & Guigue [<sup>[1]</sup>](https://hal.inria.fr/inria-00072100/document).
+Fast and robust triangle-triangle intersection test with high precision for cross and coplanar triangles based on the algorithm by Devillers & Guigue [<sup>[1]</sup>](https://hal.inria.fr/inria-00072100/document).
 
 - Uses Three.js
+- Computes the intersection shape (point, line or polygon).
 - Typescript definitions included.
 
 ## Install

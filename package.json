@@ -1,9 +1,9 @@
 {
   "name": "fast-triangle-triangle-intersection",
-  "description": "Fast and robust triangle-triangle intersection computation with high precision for cross and coplanar triangles based on the algorithm by Devillers & Guigue [<sup>[1]</sup>](https://hal.inria.fr/inria-00072100/document).",
+  "description": "Fast and robust triangle-triangle intersection test with high precision for cross and coplanar triangles based on the algorithm by Devillers & Guigue.",
   "keywords": [
-    "triangle", "intersection", "crossing", "coplanar", "Muller", "3D", "2D",
-    "three.js", "precision", "typescript"
+    "triangle", "intersection", "crossing", "coplanar", "Devillers", "Muller",
+    "3D", "2D", "three.js", "precision", "typescript"
   ],
   "version": "1.0.0",
   "author": {
