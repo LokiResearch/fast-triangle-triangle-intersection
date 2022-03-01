@@ -1,16 +1,19 @@
-# triangle-triangle-intersection-js
+# faster-triangle-triangle-intersection
+
+
+Faster and robust triangle-triangle intersection computation with high precision for cross and coplanar triangles based on the algorithm by Devillers & Guigue [<sup>[1]</sup>](https://hal.inria.fr/inria-00072100/document).
 
 [![build](https://github.com/LokiResearch/triangle-triangle-intersection-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/LokiResearch/triangle-triangle-intersection-js/actions/workflows/node.js.yml)
 
-Fast triangle-triangle intersection computation with high precision and cross/coplanar triangles handling.
+- Uses Three.js
+- Typescript definitions included.
 
-Typescript definitions are included.
 
-### Install
+## Install
 
-`npm i triangle-triangle-intersection-js`
+`npm i faster-triangle-triangle-intersection`
 
-### Documentation
+## Documentation
 
 
 ```ts
@@ -20,13 +23,13 @@ trianglesIntersect(t1: Triangle, t2: Triangle, target?: Array<Vector3>): Interse
 Computes wether triangle `t1` and `t2` are intersecting and returns `Intersection.Cross` if triangles are *cross-intersecting*, `Intersection.Coplanar` if triangles are *coplanar-intersecting*, otherwise returns `null`.
 If `target` array is given, **it is emptied** and intersection points are then computed and put in the array.
 
-### Use
+## Example
 
 Check if triangles are simply intersecting.
 
 ```ts
 import {Triangle} from 'three';
-import {trianglesIntersect, Intersection} from 'triangle-triangle-intersection-js';
+import {trianglesIntersect, Intersection} from 'faster-triangle-triangle-intersection';
 
 const t1 = new Triangle();
 t1.a.set(-1, 0, 0);
@@ -57,9 +60,9 @@ if (trianglesIntersect(t1, t2, points)) {
 }
 ```
 
-### Info
+## Info
 
-This algorithm is based on this [publication](https://hal.inria.fr/inria-00072100/document).
+This algorithm is based on the publication by Devillers & Guigue [<sup>[1]</sup>](https://hal.inria.fr/inria-00072100/document).
 
 ```
 @techreport{devillers:inria-00072100,
