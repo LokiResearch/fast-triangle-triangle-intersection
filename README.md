@@ -1,6 +1,7 @@
 # fast-triangle-triangle-intersection
 
-[![build](https://github.com/LokiResearch/fast-triangle-triangle-intersection/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/LokiResearch/fast-triangle-triangle-intersection/actions/workflows/node.js.yml)
+[![build](https://github.com/LokiResearch/fast-triangle-triangle-intersection/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/LokiResearch/fast-triangle-triangle-intersection/actions/workflows/build.yml)
+[![npm version](https://badge.fury.io/js/fast-triangle-triangle-intersection.svg)](https://badge.fury.io/js/fast-triangle-triangle-intersection)
 
 Fast and robust triangle-triangle intersection test with high precision for cross and coplanar triangles based on the algorithm by Devillers & Guigue [<sup>[1]</sup>](https://hal.inria.fr/inria-00072100/document).
 
