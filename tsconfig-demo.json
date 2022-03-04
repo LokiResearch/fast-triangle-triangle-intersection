@@ -11,8 +11,7 @@
     "target": "es6",
     "module": "es6",
     "sourceMap": true,
-    "declaration": true,
-    "declarationDir": "build/types",
+    "baseUrl": ".",
     "outDir": "build",
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -23,11 +22,9 @@
     ]
   },
   "include": [
-    "./src",
+    "./demo"
   ],
   "exclude": [
     "node_modules",
-    "./src/**/*.test.ts",
-    "./src/testUtils"
   ]
 }
