@@ -31,6 +31,6 @@ jobs:
     - name: Commit Demo
       uses: EndBug/add-and-commit@v7
       with:
-        add: 'build/demo'
+        add: 'build/demo --force'
         message: 'update demo'
         push: 'origin HEAD:demo --force'
