@@ -9,6 +9,10 @@ Fast and robust triangle-triangle intersection test with high precision for cros
 - Computes the intersection shape (point, line or polygon).
 - Typescript definitions included.
 
+## Demo
+
+[Online Triangles Intersection demo](https://lokiresearch.github.io/fast-triangle-triangle-intersection/build/demo/)
+
 ## Install
 
 `npm i fast-triangle-triangle-intersection`

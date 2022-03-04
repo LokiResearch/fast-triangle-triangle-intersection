@@ -83,7 +83,7 @@ const interInfo = {
 	p4: "",
 	p5: "",
 	p6: "",
-}
+};
 const interPoints = new Array<THREE.Vector3>();
 const interMesh = new THREE.Mesh(new THREE.BufferGeometry(), interMaterial);
 scene.add(interMesh);

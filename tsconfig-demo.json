@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
+    "noEmitOnError": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
@@ -8,10 +9,8 @@
     "removeComments": true,
     "strictNullChecks":true,
     "strict": true,
-    "target": "es6",
-    "module": "es6",
-    "sourceMap": true,
-    "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
     "outDir": "build",
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -22,9 +21,12 @@
     ]
   },
   "include": [
+    "./src",
     "./demo"
   ],
   "exclude": [
     "node_modules",
+    "./src/**/*.test.ts",
+    "./src/testUtils"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
+    "noEmitOnError": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
@@ -8,11 +9,11 @@
     "removeComments": true,
     "strictNullChecks":true,
     "strict": true,
-    "target": "es6",
-    "module": "es6",
+    "target": "esnext",
+    "module": "esnext",
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "build/types",
+    "declarationDir": "types",
     "outDir": "build",
     "moduleResolution": "node",
     "esModuleInterop": true,
