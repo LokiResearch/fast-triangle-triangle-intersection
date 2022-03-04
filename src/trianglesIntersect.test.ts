@@ -473,17 +473,3 @@ describe("Coplanar triangles", () => {
   });
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-

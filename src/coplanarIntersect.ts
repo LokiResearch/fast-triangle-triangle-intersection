@@ -255,9 +255,6 @@ export function clipTriangle(t1: Triangle, t2: Triangle, target: Vector3[]) {
     }
   }
 
-  // Clear target
-  target.splice(0, target.length);
-
   // Clear duplicated points
   for (const point of _output) {
 

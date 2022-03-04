@@ -40,6 +40,11 @@ export enum Intersection {
 export function trianglesIntersect(
     t1: Triangle, t2: Triangle, target?: Vector3[]): Intersection | null {
 
+  // Clear target
+  if (target) {
+    target.splice(0, target.length);
+  }
+
   // Check wether t1 or t2 is degenerated (flat)
   if (isTriDegenerated(t1) || isTriDegenerated(t2)) {
     console.warn("Degenerated triangles provided, skipping.");
@@ -58,8 +63,9 @@ export function trianglesIntersect(
   const o1b = orient3D(t2.a, t2.b, t2.c, t1.b);
   const o1c = orient3D(t2.a, t2.b, t2.c, t1.c);
 
-  if (o1a === o1b && o1a === o1c && o1a === 0) {
-    if (coplanarIntersect(t1, t2, target)) {
+  if (o1a === o1b && o1a === o1c) {
+
+    if (o1a === 0 && coplanarIntersect(t1, t2, target)) {
       return Intersection.Coplanar;
     }
     return null;

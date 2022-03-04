@@ -26,7 +26,7 @@ export function crossIntersect(
     o1a: number, o1b: number, o1c: number,
     target?: Vector3[]) {
 
-  // Check relative position of t1's vertices againt t2
+  // Check relative position of t2's vertices againt t1
   const o2a = orient3D(t1.a, t1.b, t1.c, t2.a);
   const o2b = orient3D(t1.a, t1.b, t1.c, t2.b);
   const o2c = orient3D(t1.a, t1.b, t1.c, t2.c);
@@ -137,9 +137,6 @@ function computeLineIntersection(t1: Triangle, t2: Triangle, target: Vector3[]) 
 
     }
   }
-
-  // Be sure to empty target array
-  target.splice(0, target.length);
 
   target.push(_i1.clone());
   if (_i1.distanceTo(_i2) >= EPSILON) {
