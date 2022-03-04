@@ -1,3 +1,9 @@
+## [1.0.3] - 2022-03-04
+
+- Added a triangles intersection demo
+- Fix an issue where an intersection is found while the first three intersection
+tests are all positive or negative
+
 ## [1.0.2] - 2022-03-02
 
 - Added rollup config to generate esm and cjs
