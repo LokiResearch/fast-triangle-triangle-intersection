@@ -1,3 +1,7 @@
+## [1.0.4] - 2022-05-17
+
+- Moved three to devDependencies
+
 ## [1.0.3] - 2022-03-04
 
 - Added a triangles intersection demo
