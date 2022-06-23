@@ -1,3 +1,9 @@
+## [1.0.5] - 2022-05-17
+
+- Added more tests
+- Fixed issue #1
+- Moved three to peerDependencies
+
 ## [1.0.4] - 2022-05-17
 
 - Moved three to devDependencies
