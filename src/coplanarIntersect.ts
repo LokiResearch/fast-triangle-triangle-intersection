@@ -59,21 +59,21 @@ export function coplanarIntersect(t1: Triangle, t2: Triangle, target?: Vector3[]
   makeTriCounterClockwise(t1);
   makeTriCounterClockwise(t2);
 
-  const o_ab = orient2D(t2.a, t2.b, t1.a);
-  const o_bc = orient2D(t2.b, t2.c, t1.a);
-  const o_ca = orient2D(t2.c, t2.a, t1.a);
-
-  if (o_ab === 0 && o_bc === 0 && o_ca === 0) {
-    console.error("Triangles should not be flat.", t1, t2, _v);
-    return false;
-  }
+  const p1 = t1.a;
+  const p2 = t2.a;
+  const q2 = t2.b;
+  const r2 = t2.c;
+  
+  const o_p2q2 = orient2D(p2, q2, p1);
+  const o_q2r2 = orient2D(q2, r2, p1);
+  const o_r2p2 = orient2D(r2, p2, p1);
 
   // See paper Figure 6 to a better understanding of the decision tree.
 
   let intersecting = false;
-  if (o_ab >= 0) {
-    if (o_bc >= 0) {
-      if (o_ca >= 0) {
+  if (o_p2q2 >= 0) {
+    if (o_q2r2 >= 0) {
+      if (o_r2p2 >= 0) {
         // + + +
         intersecting = true;
       } else {
@@ -81,7 +81,7 @@ export function coplanarIntersect(t1: Triangle, t2: Triangle, target?: Vector3[]
         intersecting = intersectionTypeR1(t1, t2);
       }
     } else {
-      if (o_ca >= 0) {
+      if (o_r2p2 >= 0) {
         // + - +
         permuteTriRight(t2);
         intersecting = intersectionTypeR1(t1, t2);
@@ -91,8 +91,8 @@ export function coplanarIntersect(t1: Triangle, t2: Triangle, target?: Vector3[]
       }
     }
   } else {
-    if (o_bc >= 0) {
-      if (o_ca >= 0) {
+    if (o_q2r2 >= 0) {
+      if (o_r2p2 >= 0) {
         // - + +
         permuteTriLeft(t2);
         intersecting = intersectionTypeR1(t1, t2);
@@ -102,9 +102,15 @@ export function coplanarIntersect(t1: Triangle, t2: Triangle, target?: Vector3[]
         intersecting = intersectionTypeR2(t1, t2);
       }
     } else {
-      // - - +
-      permuteTriRight(t2);
-      intersecting = intersectionTypeR2(t1, t2);
+      if (o_r2p2 >= 0) {
+        // - - +
+        permuteTriRight(t2);
+        intersecting = intersectionTypeR2(t1, t2);
+      } else {
+        // - - -
+        console.error("Triangles should not be flat.", t1, t2, _v);
+        return false;
+      }
     }
   }
 
@@ -130,7 +136,7 @@ function intersectionTypeR1(t1: Triangle, t2: Triangle) {
   const p2 = t2.a;
   const r2 = t2.c;
 
-  // See paper Figure 9 to a better understanding of the decision tree.
+  // See paper Figure 9 for a better understanding of the decision tree.
 
   if (orient2D(r2, p2, q1) >= 0) { // I
     if (orient2D(r2, p1, q1) >= 0) { // II.a
@@ -147,7 +153,7 @@ function intersectionTypeR1(t1: Triangle, t2: Triangle) {
   } else {
     if (orient2D(r2, p2, r1) >= 0) { // II.b
       if (orient2D(q1, r1, r2) >= 0) { // III.b
-        if (orient2D(p1, p2, r1) <= 0) { // IV.b
+        if (orient2D(p1, p2, r1) >= 0) { // IV.b Paper says <= 0, but I think that's a mistake ?
           return true;
         }
       }
@@ -167,7 +173,7 @@ function intersectionTypeR2(t1: Triangle, t2: Triangle) {
   const q2 = t2.b;
   const r2 = t2.c;
 
-  // See paper Figure 10 to a better understanding of the decision tree.
+  // See paper Figure 10 for a better understanding of the decision tree.
 
   if (orient2D(r1, p2, q1) >= 0) { // I
     if (orient2D(q2, r2, q1) >= 0) { // II.a

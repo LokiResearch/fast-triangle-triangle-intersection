@@ -80,7 +80,7 @@ export function permuteTriRight(tri: Triangle) {
 
 export function makeTriCounterClockwise(tri: Triangle) {
 
-  if (orient2D(tri.a, tri.b, tri.c) <= 0) {
+  if (orient2D(tri.a, tri.b, tri.c) < 0) {
     const tmp = tri.c;
     tri.c = tri.b;
     tri.b = tmp;

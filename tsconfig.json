@@ -11,20 +11,18 @@
     "strict": true,
     "target": "esnext",
     "module": "esnext",
-    "sourceMap": true,
-    "declaration": true,
-    "declarationDir": "types",
     "outDir": "build",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": [
-      "dom",
       "es2021",
+      "dom",
     ]
   },
   "include": [
     "./src",
+    "./demo"
   ],
   "exclude": [
     "node_modules",

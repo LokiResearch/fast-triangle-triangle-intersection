@@ -15,7 +15,8 @@ import {Vector3} from 'three';
 declare global {
   namespace jest {
     interface Matchers<R> {
-      toEqualVectors(espected: Vector3[], precision?: number): CustomMatcherResult;
+      toEqualVector(expected: Vector3, precision?: number): CustomMatcherResult;
+      toEqualVectors(expected: Vector3[], precision?: number): CustomMatcherResult;
     }
   }
 }
@@ -41,14 +42,27 @@ function compareVector3(a: Vector3, b: Vector3) {
 }
 
 expect.extend({
+
+  toEqualVector(received: Vector3, expected: Vector3, precision = 1e-10) {
+
+    const pass = received.distanceTo(expected) <= precision;
+    return {
+      message: () =>
+        `Expected vectors ${pass? 'not': ''} to be equal`+
+        '\nReceived: '+strVector3(received)+
+        '\nExpected: '+strVector3(expected),
+      pass: pass,
+    };
+  },
+
   toEqualVectors(received: Vector3[], expected: Vector3[], precision = 1e-10) {
 
     if (received.length !== expected.length) {
       return {
         message: () =>
-          `Expected polygons to have the same size \n`+
-          `Received [ size = ${received.length} ]:\n`+strPoly3(received)+
-          `Expected [ size = ${expected.length} ]:\n`+strPoly3(expected),
+          `Expected polygons to have the same size`+
+          `\nReceived [ size = ${received.length} ]: `+strPoly3(received)+
+          `\nExpected [ size = ${expected.length} ]: `+strPoly3(expected),
         pass: false
       }
     }
@@ -66,20 +80,19 @@ expect.extend({
     if (pass) {
       return {
         message: () =>
-          `Expected polygons not to be equal \n`+
-          'Received:\n'+strPoly3(received)+
-          'Expected:\n'+strPoly3(expected),
+          `Expected polygons not to be equal`+
+          '\nReceived: '+strPoly3(received)+
+          '\nExpected: '+strPoly3(expected),
         pass: true,
       };
     } else {
       return {
         message: () =>
-          `Expected polygons to be equal [failed at index ${i-1}]\n`+
-          'Received:\n'+strPoly3(received)+
-          'Expected:\n'+strPoly3(expected),
+          `Expected polygons to be equal [failed at index ${i-1}]`+
+          '\nReceived: '+strPoly3(received)+
+          '\nExpected: '+strPoly3(expected),
         pass: false,
       };
     }
   }
-
 });

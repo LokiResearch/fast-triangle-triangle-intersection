@@ -7,17 +7,30 @@ const lib_cfg = {
   external: ['three'],
   output: [
     {
-      format: 'cjs',
-      file: 'build/index.cjs',
+      name: "FastTriangleTriangleIntersection",
+      format: 'umd',
+      file: 'build/index.umd.js',
       sourcemap: true,
+      globals: {
+        'three':'three'
+      }
     },
     {
       format: 'esm',
-      file: 'build/index.js',
+      file: 'build/index.esm.js',
       sourcemap: true,
     }
   ],
-  plugins: [typescript({tsconfig: './tsconfig.json'})]
+  plugins: [typescript({
+    tsconfig: './tsconfig.json',
+    compilerOptions: {
+      "sourceMap": true,
+      "declaration": true,
+      "declarationMap": true,
+      "declarationDir": "types",
+    },
+    exclude: ["examples/*"]
+  })]
 };
 
 const demo_cfg =  {
@@ -26,7 +39,9 @@ const demo_cfg =  {
     file: 'build/demo/intersect.js',
   },
   plugins: [
-    typescript({tsconfig: './tsconfig-demo.json'}),
+    typescript({
+      tsconfig: './tsconfig.json'
+    }),
     nodeResolve(),
     htmlTemplate({
       template: 'demo/index.html',

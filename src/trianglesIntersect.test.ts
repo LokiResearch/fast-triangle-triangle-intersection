@@ -473,3 +473,172 @@ describe("Coplanar triangles", () => {
   });
 
 });
+
+
+
+describe("More coplanar triangles", () => {
+
+  beforeEach(() => {
+    t2.a.set(3,0,0);
+    t2.b.set(0,3,0);
+    t2.c.set(0,0,0);
+  });
+
+  test("p orientation: + - -", () => {
+    t1.a.set(-1,-1,0);
+    t1.b.set(1,1,0);
+    t1.c.set(1,-1,0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: + + -", () => {
+    t1.a.set(1,-1,0);
+    t1.b.set(1,1,0);
+    t1.c.set(5,-1,0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: - + -", () => {
+    t1.a.set(5,-1,0);
+    t1.b.set(1,1,0);
+    t1.c.set(2,2,0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: - + +", () => {
+    t1.a.set(2,2,0);
+    t1.b.set(1,1,0);
+    t1.c.set(-1,5,0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: - - +", () => {
+    t1.a.set(-1,5,0);
+    t1.b.set(1,1,0);
+    t1.c.set(-1,2,0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: + - +", () => {
+    t1.a.set(-1,2,0);
+    t1.b.set(1,1,0);
+    t1.c.set(-1,-1,0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: + + +", () => {
+    t1.a.set(1,1,0);
+    t1.b.set(-1,5,0);
+    t1.c.set(-1,2,0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+
+});
+
+describe("Even more coplanar triangles", () => {
+
+  beforeEach(() => {
+    t2.a.set(3,0,0);
+    t2.b.set(0,3,0);
+    t2.c.set(0,0,0);
+  });
+
+  test("p orientation: + - -", () => {
+    t1.a.set(-1,-1,0);
+    t1.b.set(1,1,0);
+    t1.c.set(t1.a.x+0.2, t1.a.y-0.3, 0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: + + -", () => {
+    t1.a.set(1,-1,0);
+    t1.b.set(1,1,0);
+    t1.c.set(t1.a.x+0.2, t1.a.y-0.3, 0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: - + -", () => {
+    t1.a.set(5,-1,0);
+    t1.b.set(1,1,0);
+    t1.c.set(t1.a.x+0.2, t1.a.y-0.3, 0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: - + +", () => {
+    t1.a.set(2,2,0);
+    t1.b.set(1,1,0);
+    t1.c.set(t1.a.x+0.2, t1.a.y-0.3, 0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: - - +", () => {
+    t1.a.set(-1,5,0);
+    t1.b.set(1,1,0);
+    t1.c.set(t1.a.x+0.2, t1.a.y-0.3, 0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: + - +", () => {
+    t1.a.set(-1,2,0);
+    t1.b.set(1,1,0);
+    t1.c.set(t1.a.x+0.2, t1.a.y-0.3, 0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+  test("p orientation: + + +", () => {
+    t1.a.set(1,1,0);
+    t1.b.set(-1,5,0);
+    t1.c.set(t1.a.x+0.2, t1.a.y-0.3, 0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+
+});
+
+describe("Github Issues triangles", () => {
+  
+  test("issue #1", () => {
+    t1.a.set(-2,-2,0);
+    t1.b.set(2,-2,0);
+    t1.c.set(0,2,0);
+
+    t2.a.set(0,3,0);
+    t2.b.set(-3,-1,0);
+    t2.c.set(3,-1,0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
+
+});
+
