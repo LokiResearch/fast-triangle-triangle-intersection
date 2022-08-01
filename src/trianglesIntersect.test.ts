@@ -639,6 +639,30 @@ describe("Github Issues triangles", () => {
     expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
   });
 
+  test("issue #3", () => {
+    t1.a.set(-1,0,0);
+    t1.b.set(2,-2,0);
+    t1.c.set(2,2,0);
+
+    t2.a.set(0.551,-0.796,0);
+    t2.b.set(1.224,0.326,0);
+    t2.c.set(3.469,1,0);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+
+    t1.a.set(-1,0,0);
+    t1.b.set(2,0,-2);
+    t1.c.set(2,0,2);
+
+    t2.a.set(0.551,0,-0.796);
+    t2.b.set(1.224,0,0.326);
+    t2.c.set(3.469,0,1);
+
+    expect(trianglesIntersect(t1, t2)).toBe(Intersection.Coplanar);
+    expect(trianglesIntersect(t2, t1)).toBe(Intersection.Coplanar);
+  });
+
 
 });
 

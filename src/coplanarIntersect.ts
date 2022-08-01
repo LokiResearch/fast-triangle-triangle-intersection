@@ -153,9 +153,9 @@ function intersectionTypeR1(t1: Triangle, t2: Triangle) {
   } else {
     if (orient2D(r2, p2, r1) >= 0) { // II.b
       if (orient2D(q1, r1, r2) >= 0) { // III.b
-        if (orient2D(p1, p2, r1) >= 0) { // IV.b Paper says <= 0, but I think that's a mistake ?
+        if (orient2D(p1, p2, r1) >= 0) { // IV.b  Diverge from paper
           return true;
-        }
+        } 
       }
     }
   }
@@ -175,7 +175,7 @@ function intersectionTypeR2(t1: Triangle, t2: Triangle) {
 
   // See paper Figure 10 for a better understanding of the decision tree.
 
-  if (orient2D(r1, p2, q1) >= 0) { // I
+  if (orient2D(r2, p2, q1) >= 0) { // I
     if (orient2D(q2, r2, q1) >= 0) { // II.a
       if (orient2D(p1, p2, q1) >= 0) { // III.a
         if (orient2D(p1, q2, q1) <= 0) { // IV.a
@@ -183,7 +183,7 @@ function intersectionTypeR2(t1: Triangle, t2: Triangle) {
         }
       } else {
         if (orient2D(p1, p2, r1) >= 0) { // IV.b
-          if (orient2D(r2, p2, r1) >= 0) { // V.a
+          if (orient2D(r2, p2, r1) <= 0) { // V.a
             return true;
           }
         }

@@ -79,6 +79,9 @@ test("orient2D", () => {
   c.set(0-1e-9, 2, 0);
   expect(utils.orient2D(a,b,c)).toBe(1);
 
+  c.set(0+1e-9, 2, 0);
+  expect(utils.orient2D(a,b,c)).toBe(-1);
+
 });
 
 
