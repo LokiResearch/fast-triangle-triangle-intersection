@@ -1,3 +1,8 @@
+## [1.0.6] - 2022-08-01
+
+- Fixed issue #3
+- Added tests
+
 ## [1.0.5] - 2022-05-17
 
 - Added more tests
