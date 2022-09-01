@@ -1,3 +1,7 @@
+## [1.0.7] - 2022-09-01
+
+- Fixed wrong location for the ts types definitions
+
 ## [1.0.6] - 2022-08-01
 
 - Fixed issue #3

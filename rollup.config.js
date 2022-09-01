@@ -29,7 +29,7 @@ const lib_cfg = {
       "declarationMap": true,
       "declarationDir": "types",
     },
-    exclude: ["examples/*"]
+    exclude: ["demo/*"]
   })]
 };
 
